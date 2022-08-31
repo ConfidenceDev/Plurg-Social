@@ -1,0 +1,16 @@
+[
+  {
+    "image": "",
+    "name": "John Doe",
+    "bio": "A frontend developer",
+    "url": "https://google.com",
+    "social": "Google"
+  },
+  {
+    "image": "",
+    "name": "Jane Doe",
+    "bio": "Data Analyst",
+    "url": "https://facebook.com",
+    "social": "Facebook"
+  }
+]
