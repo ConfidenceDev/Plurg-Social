@@ -4,7 +4,7 @@ Connect with new people. Share your social profiles and gain followers
 
 # Website
 
-<a href="https://www.plurg-social.me">https://www.plurg-social.me</a>
+<a href="https://plurg-social.onrender.com">https://plurg-social.onrender.com</a>
 
 # Contact
 

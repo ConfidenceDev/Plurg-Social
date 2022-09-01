@@ -1,36 +1,65 @@
 function main(io, socket) {
-  const { getProfile, writeProfile, removeProfile } = require("../models/main");
+  const {
+    getRun,
+    setRun,
+    defaultProfile,
+    getProfile,
+    writeProfile,
+    removeProfile,
+  } = require("../models/main");
 
   const naira = process.env.NAIRA;
   const loop = 1000;
-  const time = 60;
+  const time = parseInt(process.env.TIMER);
   let duration = time;
   let counter;
+  let currentProfile = null;
   clearBuffer();
 
   //============= ONLINE ====================
   let count = io.sockets.server.engine.clientsCount;
-  io.emit("online", count);
-  io.emit("naira", {
-    naira: naira,
-  });
+  const boosters = [1035];
+  const boost = boosters[Math.floor(Math.random() * boosters.length)];
+  io.emit("online", { count: parseInt(count) + boost, naira });
+  if (currentProfile !== null) socket.emit("profile", currentProfile);
+  else {
+    defaultProfile().then((data) => {
+      socket.emit("profile", data);
+    });
+  }
 
-  getProfile().then(async (result) => {
-    if (result) {
-      socket.emit("profile", result);
+  getRun().then(async (result) => {
+    if (!result) {
+      await setRun();
+      startLive();
     }
   });
 
   //============= ADD =====================
   socket.on("add", async (data) => {
     clearBuffer();
-    writeProfile(data)
-      .then(() => {
-        socket.emit("add", true);
-      })
-      .catch(() => {
-        socket.emit("add", false);
-      });
+    writeProfile(data).then((result) => {
+      if (result === null) {
+        socket.emit("add", "Congrats, your profile is added, you are up next!");
+      } else if (result > -1) {
+        socket.emit(
+          "add",
+          `Success, profile is added to queue: position ${result + 1}`
+        );
+      } else {
+        socket.emit("add", "Profile added successfully!");
+      }
+    });
+  });
+
+  function clearBuffer() {
+    socket.sendBuffer = [];
+  }
+
+  //============= DISCONNECT =================
+  socket.on("disconnect", () => {
+    let count = io.sockets.server.engine.clientsCount;
+    io.emit("online", { count: parseInt(count) + boost, naira });
   });
 
   //============= TIMER ====================
@@ -42,27 +71,19 @@ function main(io, socket) {
         await io.volatile.emit("timer", --duration);
 
         if (duration <= 0) {
-          getProfile().then(async (result) => {
-            const profile = result;
-            await removeProfile();
+          await getProfile().then(async (profile) => {
             duration = time;
             clearInterval(counter);
-            io.emit("profile", profile);
+
+            currentProfile = profile;
+            await removeProfile(profile);
+            io.emit("profile", currentProfile);
+            startLive();
           });
         }
       }
     }, loop);
   }
-
-  function clearBuffer() {
-    socket.sendBuffer = [];
-  }
-
-  //============= DISCONNECT =================
-  socket.on("disconnect", () => {
-    let count = io.sockets.server.engine.clientsCount;
-    io.emit("online", count);
-  });
 }
 
 module.exports = main;

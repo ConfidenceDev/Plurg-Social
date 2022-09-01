@@ -1,16 +1,20 @@
 [
   {
-    "image": "",
-    "name": "John Doe",
-    "bio": "A frontend developer",
-    "url": "https://google.com",
-    "social": "Google"
+    "id": "1",
+    "image": "https://pbs.twimg.com/profile_images/1560220158702096388/mgvR4h0n_400x400.jpg",
+    "name": "Confidence Dev",
+    "bio": "A Backend Engineer",
+    "url": "https://twitter.com/ConfidenceDev",
+    "social": "Twitter",
+    "next": false
   },
   {
-    "image": "",
-    "name": "Jane Doe",
-    "bio": "Data Analyst",
-    "url": "https://facebook.com",
-    "social": "Facebook"
+    "id": "2",
+    "image": "https://pbs.twimg.com/profile_images/1501564092246638594/nbgeo-5V_400x400.jpg",
+    "name": "Anita Eze",
+    "bio": "Freelance Accountant",
+    "url": "https://twitter.com/anita_eze",
+    "social": "Twitter",
+    "next": false
   }
 ]

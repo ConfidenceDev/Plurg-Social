@@ -2,13 +2,22 @@
   "name": "plurg-social",
   "version": "1.0.0",
   "description": "Connect with new people. Share your social profiles and gain followers",
-  "main": "index.js",
+  "main": "app.js",
   "scripts": {
     "start": "node app.js",
     "dev": "nodemon app.js",
     "build": "echo 'Building... '"
   },
-  "keywords": [],
+  "keywords": [
+    "social",
+    "facebook",
+    "instagram",
+    "twitter",
+    "youtube",
+    "linkedin",
+    "telegram",
+    "snapchat"
+  ],
   "author": {
     "name": "Plurg Inc",
     "email": "plurginc@gmail.com",

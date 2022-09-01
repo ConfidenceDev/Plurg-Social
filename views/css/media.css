@@ -1,0 +1,48 @@
+@media (max-width: 1024px) {
+  .navbar {
+    padding-top: 20px;
+    height: 180px;
+  }
+
+  .navbar .flex {
+    flex-direction: column;
+    justify-content: space-evenly;
+  }
+
+  .navbar ul {
+    padding: 10px;
+    background-color: rgba(0, 0, 0, 0.1);
+  }
+
+  .home {
+    height: auto;
+  }
+
+  .popup {
+    width: 60%;
+  }
+
+  .popup h3 {
+    font-size: 1em;
+  }
+}
+
+@media (max-width: 524px) {
+  .home_cover {
+    min-width: 350px;
+    max-width: 350px;
+  }
+
+  .navbar ul {
+    font-size: 0.7rem;
+  }
+
+  .footer .copyright {
+    font-size: 1.2em;
+  }
+
+  .popup {
+    width: 90%;
+    overflow-y: scroll;
+  }
+}

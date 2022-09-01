@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta
+      name="description"
+      content="Connect with new people. Share your social profiles and gain followers"
+    />
+    <meta
+      name="keywords"
+      content="social, facebook, instagram, twitter, youtube, linkedin, telegram, snapchat"
+    />
+    <meta name="author" content="Plurg Inc." />
+    <link rel="stylesheet" type="text/css" href="css/style.css" />
+    <link rel="stylesheet" type="text/css" href="css/modal.css" />
+    <link rel="stylesheet" type="text/css" href="css/media.css" />
+    <link rel="icon" type="image/png" href="./assets/icons/plug.png" />
+    <title>Plurg | Social Me</title>
+  </head>
+  <body>
+    <div class="navbar">
+      <div class="container flex">
+        <div class="navbar_icon">
+          <h1><a href="index.html">Plurg</a></h1>
+          <img src="./assets/icons/plug.png" alt="icon" />
+        </div>
+        <nav>
+          <ul>
+            <li><a href="#popup_about" class="link">About</a></li>
+            <li>
+              <a href="policy.html" target="_blank" class="link">Policy</a>
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </div>
+
+    <section class="home container">
+      <div class="home_cover">
+        <div class="broad top">
+          <label class="count"><b class="ac_count"></b> Online</label>
+          <hr />
+          <label class="timer"><b class="ac_timer"></b> min</label>
+        </div>
+        <div class="broad mid">
+          <img src="" alt="profile_img" class="profile_img" />
+          <div class="details_container">
+            <label class="profile_name"><b class="ac_profile_name"></b></label>
+            <label class="profile_bio"></label>
+            <a target="_blank" class="button profile_url">Social</a>
+          </div>
+        </div>
+        <div class="broad bottom">
+          <a href="#popup_add" class="button add_btn">Add Mine</a>
+        </div>
+      </div>
+    </section>
+
+    <div id="popup_add" class="overlay">
+      <div class="popup">
+        <h2>Add Profile</h2>
+        <a class="close" href="#">&times;</a>
+        <div class="details add">
+          <select name="categories" class="category_list">
+            <option data-category="Facebook">Facebook</option>
+            <option data-category="Twitter">Twitter</option>
+            <option data-category="Youtube">Youtube</option>
+            <option data-category="LinkedIn">LinkedIn</option>
+            <option data-category="Telegram">Telegram</option>
+            <option data-category="Snapchat">Snapchat</option>
+          </select>
+          <input
+            type="url"
+            placeholder="Image URL"
+            class="inputs post_img"
+            autocomplete="on"
+            required
+          />
+          <input
+            type="text"
+            placeholder="Public Name"
+            class="inputs post_name"
+            autocomplete="on"
+            required
+          />
+          <h4 class="post_field_count">0/64</h4>
+          <textarea
+            type="text"
+            class="inputs post_bio"
+            rows="4"
+            placeholder="Short Bio..."
+            maxlength="64"
+          ></textarea>
+          <input
+            type="url"
+            placeholder="Social Page URL"
+            class="inputs post_url"
+            autocomplete="on"
+            required
+          />
+          <input
+            type="email"
+            placeholder="Email (Optional, required for payment only)"
+            class="inputs post_email"
+            autocomplete="on"
+            required
+          />
+          <div class="progress"></div>
+          <p class="disclaimer">
+            Disclaimer: Add email to display your profile next rather than being
+            on a queue. A small service fee of $1.99 would be required to
+            publish with email, otherwise leave email field blank. Also USD will
+            be converted to NGN before transaction.
+          </p>
+          <button class="popup_buttons proceed_btn">Proceed</button>
+        </div>
+      </div>
+    </div>
+
+    <div id="popup_mail" class="overlay">
+      <div class="popup">
+        <h2>Contact Us</h2>
+        <a class="close" href="#contact">&times;</a>
+        <div class="details">
+          <p class="pop_msg">
+            Send us a mail for issues, suggestions, reports or inquiries:
+            <b>plurginc@gmail.com</b>
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div id="popup_about" class="overlay">
+      <div class="popup">
+        <h2>About</h2>
+        <a class="close" href="#">&times;</a>
+        <div class="details">
+          <p class="pop_msg">
+            Connect with new people. Share your social profiles and gain
+            followers. 5 minutes of fame.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div id="popup_msg" class="overlay">
+      <div class="popup">
+        <h2>Alert</h2>
+        <a class="close" href="#subscribe">&times;</a>
+        <div class="details">
+          <p class="pop_alert"></p>
+        </div>
+      </div>
+    </div>
+
+    <footer class="footer" id="footer">
+      <ul class="footer_links">
+        <li>
+          <a
+            href="https://twitter.com/ConfidenceDev"
+            target="_blank"
+            class="reach twitter"
+            ><img src="./assets/icons/twitter.png" class="twitter_img"
+          /></a>
+        </li>
+        <li>
+          <a href="#popup_mail" class="reach mail"
+            ><img src="./assets/icons/gmail.png"
+          /></a>
+        </li>
+      </ul>
+      <h3 class="copyright">
+        Plurg Inc &#169; 2022 copyright all rights reserved
+      </h3>
+    </footer>
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="https://js.paystack.co/v1/inline.js"></script>
+    <script src="js/utils.js"></script>
+    <script src="js/main.js"></script>
+  </body>
+</html>
