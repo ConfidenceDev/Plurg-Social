@@ -18,9 +18,7 @@ function main(io, socket) {
 
   //============= ONLINE ====================
   let count = io.sockets.server.engine.clientsCount;
-  const boosters = [1035];
-  const boost = boosters[Math.floor(Math.random() * boosters.length)];
-  io.emit("online", { count: parseInt(count) + boost, naira });
+  io.emit("online", { count: parseInt(count), naira });
   if (currentProfile !== null) socket.emit("profile", currentProfile);
   else {
     defaultProfile().then((data) => {
@@ -59,7 +57,7 @@ function main(io, socket) {
   //============= DISCONNECT =================
   socket.on("disconnect", () => {
     let count = io.sockets.server.engine.clientsCount;
-    io.emit("online", { count: parseInt(count) + boost, naira });
+    io.emit("online", { count: parseInt(count), naira });
   });
 
   //============= TIMER ====================
