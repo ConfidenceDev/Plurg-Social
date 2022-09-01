@@ -18,7 +18,7 @@ const proceedBtn = document.querySelector(".proceed_btn");
 const popMsg = document.querySelector(".pop_alert");
 
 function payHash() {
-  return "pk_test_29f3274dfbddd51521e610e51994839886967a04";
+  return "pk_live_d28c3c21cc450c5827da754af5d0cae7e513c3dd";
 }
 
 window.mobileCheck = function () {
